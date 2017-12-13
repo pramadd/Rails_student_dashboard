@@ -1,0 +1,31 @@
+<% if flash[:success] %>
+<div id="green">
+    <p><%= flash[:success] %></p>
+</div>
+<% end %>
+
+
+<h1>Listing <%=   @dojos.count %> Dojos</h1>
+<table>
+    <tr>
+        <th>Branch</th>
+        <th>Street</th>
+        <th>City</th>
+        <th> state </th>
+        <th> Actions </th>
+    </tr>
+
+    <% @dojos.each do |x| %>
+    <tr>
+        <td><%= x.branch %></td>
+        <td><%= x.street %></td>
+        <td><%= x.city %></td>
+        <td><%= x.state %></td>
+        <td>
+        <a href = "dojos/<%= x.id %>">Show </a> |
+        <a href = "dojos/<%= x.id %>/edit" >Edit </a>  |
+        <a href = "dojos/<%= x.id %>" data-method="delete">Destroy </a>
+        </td>
+    </tr>
+    <% end %>       
+</table>
